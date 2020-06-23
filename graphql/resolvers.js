@@ -1,13 +1,10 @@
 //something that resolves queries
-const jgam = {
-  name: 'jimmy',
-  age: 25,
-  gender: 'male',
-};
+import { people, getById } from './db';
 
 const resolvers = {
   Query: {
-    person: () => jgam,
+    people: () => people,
+    person: (_, args) => getById(args.id),
   },
 };
 
